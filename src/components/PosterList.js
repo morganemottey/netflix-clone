@@ -8,7 +8,7 @@ let wish;
 class PosterList extends Component {
     renderPoster = () => {
         return this.props.movies.map(movie => {
-            const imgSrc = movie.poster_path;
+            const imgSrc = `${movie.poster_path}`;
             wish = false;
             return (
                 <Poster 

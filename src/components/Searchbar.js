@@ -1,20 +1,27 @@
 import React, { Component } from 'react'
+import FontAwesome from 'react-fontawesome';
 import '../css/Searchbar.css'
 
 export default class Searchbar extends Component {
+    state = {
+        value: ''
+    }
+    handleChange = (e) => {
+        this.setState({ value : e.target.value })
+    }
     render() {
         return (
-            <div>
-            <div class="card mb-4">
-                <div class="card-body">
-                    <form>
-                        <div class="form-group row">
-                            <label for="inputSearch" className="form-label"></label>
-                            <div class="col-sm-12">
-                                <input type="text" placeholder="Rechercher un film" class="form-95" id="inputSearch"/>
-                            </div>
-                        </div>
-                    </form>
+            <div className="searchBar--container">
+            <div className="searchBar">
+            <input 
+                className="searchBar--input" 
+                type="text" 
+                placeholder="Rechercher un Film" 
+                value={this.state.value}
+                onChange={this.handleChange}
+                    />
+                <div className="searchBar--submit">
+                    <FontAwesome className="searchIcon" name="search" />
                 </div>
             </div>
         </div>

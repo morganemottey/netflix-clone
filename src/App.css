@@ -20,7 +20,7 @@ Body styles
 */
 body {
     font-family: "MS Sans Serif",Tahoma,Verdana,Segoe,sans-serif; 
-    background: teal;
+    /* background: teal; */
     color: white;
     padding-bottom: 28px;
 }

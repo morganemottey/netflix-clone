@@ -4,7 +4,7 @@ export default class Footer extends Component {
     render() {
         return (
             <div>
-            <footer class="taskbar">
+            {/* <footer class="taskbar">
             <div class="row">
                 <div class="col-8">
                     <a href="//alex-b.me" class="btn start-button"><img src="assets/icons/users-1.png" class="icon-16"/>Author</a>
@@ -12,7 +12,7 @@ export default class Footer extends Component {
                 </div>
                 <div class="col-4 time">By Alex B</div>
             </div>
-            </footer>
+            </footer> */}
             </div>
         )
     }
