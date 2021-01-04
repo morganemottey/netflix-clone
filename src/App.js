@@ -1,14 +1,19 @@
 import React, { Component } from 'react'
 import Header from './components/Header'
-import Footer from './components/Footer'
+import NotFound from './routes/NotFound'
+import Details from './routes/Details'
 import Home from './routes/Home'
-import './App.css'
-import axios from 'axios'
 import { API_KEY , API_URL , IMAGE_BASE_URL , BACKDROP_SIZE } from './config'
+import './App.css'
+
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import axios from 'axios'
+import Spinner from './components/Spinner'
+
 
 export default class App extends Component {
   state = {
-    loading: false,
+    loading: true,
     movies: [],
     badge: 0,
     image: null,
@@ -84,15 +89,29 @@ export default class App extends Component {
   }
   render() {
     return (
-      <div>
-       <Header badge={this.state.badge}/>
-       <Home 
-       onSearchClick={this.handleSearch}
-       onButtonClick={this.loadMore}
-        {...this.state}
-        />
-       <Footer/>
-      </div>
+      <BrowserRouter>
+          <div className="App">
+            <Header badge={this.state.badge} />
+            {!this.state.image ? 
+              (
+                <Spinner />
+              ) : 
+              (
+              <Switch>
+                <Route path="/" exact render={() => (
+                  <Home 
+                    {...this.state}
+                    onSearchClick={this.handleSearch}
+                    onButtonClick={this.loadMore}
+                  />
+                  )} 
+                />
+                <Route path='/:id' exact component={Details} />
+                <Route component={NotFound} />
+              </Switch>
+              )}
+          </div>
+        </BrowserRouter>
     )
   }
 }
