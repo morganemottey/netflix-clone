@@ -19,7 +19,7 @@ const ActorList = (props) => {
     return (
         <div className="actorList">
             <h3 className="actorList--title"> ACTEURS </h3>
-            <div className="actorList--grid">{renderActor()}</div>
+            <div className="actorList--grid">{renderActor}</div>
         </div>
     )
 }
