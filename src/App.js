@@ -44,11 +44,21 @@ export default class App extends Component {
     totalPages: 0,
     searchText: ""
   }
+  handleSearch = value => {
+    console.log('handleSearch', value)
+  }
+  loadMore () {
+    console.log('loadMore')
+  }
   render() {
     return (
       <div>
        <Header badge={this.state.badge}/>
-       <Home {...this.state}/>
+       <Home 
+       onSearchClick={this.handleSearch}
+       onButtonClick={this.loadMore}
+        {...this.state}
+        />
        <Footer/>
       </div>
     )

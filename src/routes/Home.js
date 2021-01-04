@@ -15,9 +15,12 @@ export default class Home extends Component {
                   overview={mDesc}
                   imgScr={image}
                 />
-                 <Searchbar/>
+                 <Searchbar
+                  onSearchClick={this.props.onSearchClick}/>
                 <PosterList movies={movies}/>
-                <LoadButton loading={loading}/>
+                <LoadButton 
+                  onButtonClick={this.props.onButtonClick}
+                  loading={loading}/>
             </div>
         )
     }

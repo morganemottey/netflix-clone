@@ -20,7 +20,9 @@ export default class Searchbar extends Component {
                 value={this.state.value}
                 onChange={this.handleChange}
                     />
-                <div className="searchBar--submit">
+                <div
+                    onClick={() => this.props.onSearchClick(this.state.value)} 
+                    className="searchBar--submit">
                     <FontAwesome className="searchIcon" name="search" />
                 </div>
             </div>
