@@ -18,17 +18,18 @@ class Poster extends Component {
     remove = () => {
         // à implémenter avec redux
         console.log('remove avec redux');
-        this.props.removeM(this.props.id)
+        //this.props.removeM(this.props.id)
     }
     add = () => {
         // à implémenter avec redux
         console.log('add avec redux');
-        this.props.addM(this.props.movie)
+        //this.props.addM(this.props.movie)
     }
     render() {
         return (
-            <div
-                className="poster"
+            <div className="poster"
+            onMouseEnter={this.showOverlay}
+            onMouseLeave={this.hideOverlay}
             >
                     <img className="poster--img" src={this.props.imgSrc} alt="poster" />
                 {this.state.hover ? 
