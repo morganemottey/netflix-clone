@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import FontAwesome from 'react-fontawesome';
 import '../css/Poster.css';
 
+import { Link } from 'react-router-dom'
+
 class Poster extends Component {
     state = {
         hover: false
@@ -31,7 +33,9 @@ class Poster extends Component {
             onMouseEnter={this.showOverlay}
             onMouseLeave={this.hideOverlay}
             >
+                <Link to={{ pathname: `/${this.props.id}` }}>
                     <img className="poster--img" src={this.props.imgSrc} alt="poster" />
+                </Link> 
                 {this.state.hover ? 
                 (
                     <div className="poster--overlay">

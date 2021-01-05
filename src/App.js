@@ -26,7 +26,6 @@ export default class App extends Component {
   async componentDidMount () {
     try {
         const { data : { results, page, total_pages }} = await this.loadMovies();
-        console.log('res', results);
         this.setState({
           movies: results,
           loading: false,
@@ -44,7 +43,6 @@ export default class App extends Component {
     try {
       this.setState({ loading: true, searchText: value, image: null }, async () => {
         const { data : { results, page, total_pages }} = await this.searchMovie();
-        console.log('res', results);
         this.setState({
           movies: results,
           loading: false,
@@ -58,7 +56,6 @@ export default class App extends Component {
     } catch(e) {
       console.log('e', e);
     }
-    console.log('handleSearch', value);
   }
   searchMovie = () => {
     const url = `${API_URL}/search/movie?api_key=${API_KEY}&query=${this.state.searchText}&language=fr`;
@@ -68,7 +65,6 @@ export default class App extends Component {
     this.setState({loading : true})
     try {
       const { data : { results, page, total_pages }} = await this.loadMovies();
-      console.log('res', results);
       this.setState({
         movies: [this.state.movies, ...results], //met à jour l'état de nos films afin d'increment notre state
         loading: false,
