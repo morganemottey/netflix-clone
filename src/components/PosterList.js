@@ -12,7 +12,7 @@ class PosterList extends Component {
             const imgSrc = `${IMAGE_BASE_URL}/${POSTER_SIZE}/${movie.poster_path}`;
             wish = false;
             if(this.props.localMovies) {
-                this.props.localMovies.forEach(localMovie => {
+                this.props.localMovies.forEach(localMovie => { //permet de tester l'id initial de notre film et celui dispatcher , si celui est egal à true alors notre souhait est à true.
                     if(movie.id === localMovie.id) {
                         wish = true
                     }

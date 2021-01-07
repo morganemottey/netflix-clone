@@ -56,10 +56,10 @@ class PosterComponent extends Component {
 }
 const mapDispatchToProps = dispatch => {
     return {
-        addM: movie => dispatch(addMovie(movie)),
-        removeM: movieId => dispatch(removeMovie(movieId))
+        addM : movie => dispatch(addMovie(movie)),
+        removeM : movieId => dispatch(removeMovie(movieId))
     }
 }
-const Poster = connect(null, mapDispatchToProps)(PosterComponent)
+const Poster = connect(null, mapDispatchToProps)(PosterComponent);
 
 export { Poster }
