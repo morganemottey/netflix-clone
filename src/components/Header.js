@@ -1,19 +1,50 @@
-import React from 'react'
-import FontAwesome from 'react-fontawesome'
-import { Link } from 'react-router-dom'
-import '../css/Header.css'
+import React, { Component } from 'react';
+import FontAwesome from 'react-fontawesome';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { getNumbers } from '../actions/movies';
 
-const Header = (props) => {
-    return (
-        <div className="header">
-        <Link to={{ pathname: '/'}}>
-            <FontAwesome className="header--movie" name="film" size="5x" />
-        </Link>
-        <h3>NETFLIX</h3>
-            <FontAwesome className="header--heart" name="heart" size="5x" />
-        <div className="header--badge">{props.badge}</div>
-    </div>
-    )
+import '../css/Header.css';
+
+class HeaderComponent extends Component {
+    componentDidMount() {
+        this.props.getNumber();
+    }
+    render() {
+        return (
+            <div className="header">
+                <Link to={{ pathname: "/" }}>
+                    <FontAwesome className="header--movie" name="film" size="5x" />
+                </Link>
+                <h3>NETFLIX</h3>
+                <Link to={{ pathname: '/player'}}>
+                    <FontAwesome className="header--heart" name="heart" size="5x" />
+                </Link>
+                <div className="header--badge">{this.props.badge}</div>
+            </div>
+        )
+    }
 }
 
-export default Header
+const mapStateToProps = state => {
+    return {
+        badge: state.movies.number
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        getNumbers: () => dispatch(getNumbers())
+    }
+}
+
+const Header = connect(mapStateToProps, mapDispatchToProps)(HeaderComponent);
+
+/* state = {
+    movies: {
+        movies: [],
+        number: 0
+    }
+} */
+
+export { Header }

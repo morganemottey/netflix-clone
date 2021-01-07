@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Header from './components/Header'
+import { Header }  from './components';
 import NotFound from './routes/NotFound'
 import Details from './routes/Details'
 import Home from './routes/Home'
