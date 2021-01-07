@@ -8,7 +8,7 @@ import '../css/Header.css';
 
 class HeaderComponent extends Component {
     componentDidMount() {
-        this.props.getNumber();
+        this.props.getNumbers();
     }
     render() {
         return (

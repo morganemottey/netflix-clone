@@ -1,6 +1,6 @@
 import { ADD_MOVIE , REMOVE_MOVIE , GET_MOVIES , GET_NUMBERS} from './index'
 
-export const addMovies = movie => {
+export const addMovie = movie => {
     let movies = JSON.parse(localStorage.getItem('movies'))
     if (movies) { // nous vérifions si notre tableau contient des films
         movies = [...movies, movie]
@@ -39,7 +39,7 @@ export const getNumbers = () => {
         number = 0;
     }
     return {
-        type: GET_MOVIES,
+        type: GET_NUMBERS,
         payload: number
     }
 }

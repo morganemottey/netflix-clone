@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { IMAGE_BASE_URL, POSTER_SIZE } from '../config';
-import Poster from './Poster';
+import { Poster } from './index';
 import '../css/PosterList.css';
 
 let wish;

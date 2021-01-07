@@ -3,12 +3,14 @@ import { Header }  from './components';
 import NotFound from './routes/NotFound'
 import Details from './routes/Details'
 import Home from './routes/Home'
+import Spinner from './components/Spinner'
 import { API_KEY , API_URL , IMAGE_BASE_URL , BACKDROP_SIZE } from './config'
 import './App.css'
 
+import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import axios from 'axios'
-import Spinner from './components/Spinner'
+import store from './store'
 
 
 export default class App extends Component {
@@ -85,6 +87,7 @@ export default class App extends Component {
   }
   render() {
     return (
+      <Provider store={store}>
       <BrowserRouter>
           <div className="App">
             <Header badge={this.state.badge} />
@@ -108,6 +111,7 @@ export default class App extends Component {
               )}
           </div>
         </BrowserRouter>
+        </Provider>
     )
   }
 }
