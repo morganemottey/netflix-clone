@@ -1,18 +1,22 @@
 import React, { Component } from 'react'
 import ReactPlayer from 'react-player'
-import imgSrc from '../assets/images/Fast_large.jpg'
+
+import '../css/VideoPlayer.css'
+
 export default class VideoPlayer extends Component {
+    handleEnded = () => {
+        console.log('handle')
+    }
     render() {
-        const videoUrl = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
         return (
             <div>
                 <ReactPlayer
-                    url={videoUrl}
+                    url={this.props.videoUrl}
                     playing={false}
                     width="100%"
                     height="100%"
                     style={{ position: "absolute", top: "0", left: "0" }}
-                    light={imgSrc}
+                    light={this.props.imgUrl}
                     onEnded={this.handleEnded}
                 />
             </div>
