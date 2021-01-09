@@ -5,9 +5,9 @@ import Spinner from '../components/Spinner'
 import HeaderDetails from '../components/HeaderDetails'
 import ActorList from '../components/ActorList'
 import { API_URL, API_KEY } from '../config';
-// import { renderLogin } from '../utils/helpers';
+import { renderLogin } from '../utils/helpers';
 
-//const flag = renderLogin();
+const flag = renderLogin();
 
 class Details extends Component {
     state = {
@@ -20,15 +20,15 @@ class Details extends Component {
         runtime: "",
         status: "",
         vote: "",
-        //flag: flag
+        flag: flag
     }
 
     async componentDidMount() {
         try {
-            // if(!this.state.flag) {
-            //     this.props.history.push({ pathname: '/login'});
-            //     return;
-            // }
+            if(!this.state.flag) {
+                this.props.history.push({ pathname: '/login'});
+                return;
+            }
             const movieId = this.props.match.params.id;
             const url = `${API_URL}/movie/${movieId}?api_key=${API_KEY}&language=fr`;
             const { 

@@ -8,8 +8,9 @@ import Spinner from '../components/Spinner'
 import { API_KEY, API_URL, IMAGE_BASE_URL, BACKDROP_SIZE } from '../config';
 import { calcTime } from '../utils/helpers';
 import '../css/MoviePlayer.css';
+import { renderLogin } from '../utils/helpers';
 
-
+const flag = renderLogin(); //permet de rediriger l'utilisateur non connecté
 let newMovies = [];
 
 class MoviePlayer extends Component {
@@ -17,9 +18,13 @@ class MoviePlayer extends Component {
         movies : [],
         selectedMovie: {},
         loading: true,
-        // flag: flag
+        flag: flag
     }
     async componentDidMount() { //recuperer les films de la liste de souhaite
+        if(!this.state.flag) {
+            this.props.history.push({ pathname: '/login'});
+            return;
+        }
         const oldMovies = JSON.parse(localStorage.getItem('movies'));
         const results = await this.getNewMovies(oldMovies);
         newMovies = oldMovies.map((oldMovie, index) => {
