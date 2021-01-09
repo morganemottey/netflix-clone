@@ -1,6 +1,7 @@
-import React from 'react'
-import Paypal from '../components/Paypal'
-import firebase from 'firebase'
+import React from 'react';
+import firebase from 'firebase';
+
+import Paypal from '../components/Paypal';
 
 const client = {
     sandbox: "AZDcCIN6Azy2ouwdWsUNwS4AwjsCWm0BJfihhEFVE1N0pM-xZxX3eu0B5gkKLQY1Wa_1tJZc3-iokCRJ", // votre id du sandbox paypal
@@ -19,20 +20,36 @@ const onError = (error) => {
 
 const onCancel = data => console.log('payment annulé', data);
 
-const Payment = (props) => {
+
+const Payment = props => {
+    const onSuccess = payment => {
+        console.log('payment reussie');
+        const user = firebase.auth().currentUser;
+        const dbRef = firebase.database().ref(`users/${user.uid}`);
+        const now = new Date();
+        const newDate = now.setDate(now.getDate() + 30);
+        console.log('newDate', newDate);
+        dbRef
+            .set({ validUntil: newDate})
+                .then(() => {
+                    console.log('opération réussie');
+                    props.history.push({ pathname: '/'})
+                })
+                .catch(e => {
+                    console.log('error', e);
+                })
+    }
     return (
-        <div>
-           <Paypal 
+        <Paypal 
             env={env}
             client={client}
             total={total}
             currency={currency}
             onError={onError}
             onCancel={onCancel}
-            // onSuccess={onSuccess}
+            onSuccess={onSuccess}
         />
-        </div>
     )
 }
 
-export default Payment
+export default Payment;
