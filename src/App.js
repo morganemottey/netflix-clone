@@ -5,9 +5,11 @@ import Details from './routes/Details'
 import { Home } from './routes'
 import MoviePlayer from './routes/MoviePlayer'
 import Spinner from './components/Spinner'
+import Login from './routes/Login'
 import { API_KEY , API_URL , IMAGE_BASE_URL , BACKDROP_SIZE } from './config'
 import './App.css'
 
+import { initFirebase } from './utils/firebase-config'
 import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import axios from 'axios'
@@ -28,6 +30,7 @@ export default class App extends Component {
   }
   async componentDidMount () {
     try {
+      initFirebase();
         const { data : { results, page, total_pages }} = await this.loadMovies();
         this.setState({
           movies: results,
@@ -106,6 +109,7 @@ export default class App extends Component {
                   />
                   )} 
                 />
+                 <Route path='/login' exact component={Login} />
                 <Route path='/player' exact component={MoviePlayer} />
                 <Route path='/player/:id' exact component={MoviePlayer} />
                 <Route path='/:id' exact component={Details} />

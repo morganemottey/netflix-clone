@@ -12,3 +12,4 @@ export const calcTime = time => {
     });
     return formatter.format(money);
   };
+  export const NETFLIX_APP_LOGGEDIN = "NETFLIX_APP_LOGGEDIN";
