@@ -29,7 +29,7 @@ const Stars = (props) => {
         })
     }
     return (
-        <div className="stars">
+        <div className="stars--container">
             {rendersStars1()}
             {rendersStars2()}
         </div>
