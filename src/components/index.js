@@ -13,4 +13,4 @@ export * from './HeaderDetails';
 export * from './VideoPlayer';
 export * from './MVPlayerList';
 export * from './MVPlayerListItem';
-// export * from './Paypal'
+export * from './Paypal'
