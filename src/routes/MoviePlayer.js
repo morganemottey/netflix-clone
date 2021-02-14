@@ -22,7 +22,7 @@ class MoviePlayer extends Component {
     }
     async componentDidMount() {
         if(!this.state.flag) {
-            this.props.history.push({ pathname: '/login'});
+            this.props.history.push({ pathname: '/'});
             return;
         }
         setTimeout(() => {
@@ -80,7 +80,7 @@ class MoviePlayer extends Component {
                     }
                 })
             } else {
-                this.props.history.push({ pathname: '/login'});
+                this.props.history.push({ pathname: '/'});
             }
         }, 3000);   
     }

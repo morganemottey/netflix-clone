@@ -16,7 +16,7 @@ class HomeComponent extends Component {
   }
   componentDidMount() {
     if(!this.state.flag) {
-        this.props.history.push({ pathname: '/login'});
+        this.props.history.push({ pathname: '/'});
         return;
     }
     this.props.getMovies();
