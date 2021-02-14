@@ -5,7 +5,6 @@ import Details from './routes/Details'
 import { Home } from './routes'
 import MoviePlayer from './routes/MoviePlayer'
 import Spinner from './components/Spinner'
-import Login from './routes/Login'
 import Payment from './routes/Payment'
 import { API_KEY , API_URL , IMAGE_BASE_URL , BACKDROP_SIZE } from './config'
 import './App.css'
@@ -110,7 +109,6 @@ export default class App extends Component {
                   />
                   )} 
                 />
-                 <Route path='/login' exact component={Login} />
                 <Route path='/player' exact component={MoviePlayer} />
                 <Route path='/payment' exact component={Payment} />
                 <Route path='/player/:id' exact component={MoviePlayer} />
