@@ -28,7 +28,7 @@ export default class HeaderDetails extends Component {
             <div className="headerDetails">
                 <div className="badge-decoration">{this.props.status}</div>
                 <div className="headerDetails--poster">
-                    <img className="headerDetails--poster__img" src={imgSrc} alt="image"/>
+                    <img className="headerDetails--poster__img" src={imgSrc} alt="netflix"/>
                 </div>
                 <div className="headerDetails--container">
                     <h3 className="headerDetails--container__title">{this.props.mTitle}</h3>
